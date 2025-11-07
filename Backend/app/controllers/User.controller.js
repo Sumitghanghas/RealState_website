@@ -1,0 +1,55 @@
+import mongoose from "mongoose";
+// import { PropertiesCreationSchema } from "../schima/Properties.js";
+import { role, status } from "../constants/index.js";
+import * as UserServices from "../services/user.js";
+
+
+
+export const AddUsersAndSendMessage = async (req, res, next) => {
+  try {
+    const { FullName, Email, Phone_number, Subject, messsage } = req.body;
+
+    const creationObj = {
+      id: new mongoose.Types.ObjectId(),
+      name: FullName,
+      email: Email,
+      phoneNumber: Phone_number,
+      subject: Subject,
+      Message: messsage,
+        role: role.users,
+    };
+
+    const property = await UserServices.save(creationObj);
+
+
+    return res.status(201).json({
+      message: "Property created successfully",
+      property,
+    });
+
+  } catch (error) {
+    console.error("POST /api/properties error:", error);
+    next(error);
+  }
+}
+
+export const getuser = async (req, res, next) => {
+  try {
+    const inquiries = await UserServices.find({ role: { $ne: 1 } }, { password: 0 });
+
+    const formattedInquiries = inquiries.map(inquiry => ({
+      id: inquiry._id,
+      name: inquiry.name,
+      email: inquiry.email,
+      phone_number: inquiry.phoneNumber, 
+      subject: inquiry.subject,
+      message: inquiry.Message,
+      created_at: inquiry.createdAt,
+    }));
+
+    return res.status(200).json(formattedInquiries);
+  } catch (error) {
+    console.error("GET /api/users error:", error);
+    next(error);
+  }
+};
