@@ -8,7 +8,6 @@ import * as UserServices from "../services/user.js";
 export const AddUsersAndSendMessage = async (req, res, next) => {
   try {
     const { FullName, Email, Phone_number, Subject, messsage } = req.body;
-
     const creationObj = {
       id: new mongoose.Types.ObjectId(),
       name: FullName,
