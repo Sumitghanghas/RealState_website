@@ -8,6 +8,11 @@ import * as UserServices from "../services/user.js";
 export const AddUsersAndSendMessage = async (req, res, next) => {
   try {
     const { FullName, Email, Phone_number, Subject, messsage } = req.body;
+    if(!FullName || !Email || !Phone_number || !Subject || !messsage){
+    return res.status(404).json({
+      message: "All fields are required",
+    });  
+    }
     const creationObj = {
       id: new mongoose.Types.ObjectId(),
       name: FullName,

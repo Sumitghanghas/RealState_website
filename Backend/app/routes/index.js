@@ -1,9 +1,12 @@
 import { Router } from "express";
 import api from "./api/index.js";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
 import * as UserServices from "../services/user.js";
-import { comparePassword } from "../middleware/hashPassword.js";
+import { comparePassword, hashPassword } from "../middleware/hashPassword.js";
 import checkauth from "../middleware/Checkauth.js";
+import { role } from "../constants/index.js";
+// import { sendPasswordResetEmail } from "../services/emailService.js"; 
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 const router = Router();
@@ -44,6 +47,53 @@ router.post("/login", async (req, res) => {
     });
   } catch (error) {
     console.error("Login error:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+/**
+ * FORGET PASSWORD ROUTE
+ */
+router.post("/forgot-password", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ message: "Email is required" });
+    }
+
+    const user = await UserServices.findOne({ email, role: role.admin });
+    if (!user) {
+      return res.status(404).json({ message: "Admin user with this email not found" });
+    }
+
+    const newPassword = crypto.randomBytes(8).toString("hex");
+    const hashedPassword = await hashPassword(newPassword);
+
+    await UserServices.updateOne({ _id: user._id }, { $set: { password: hashedPassword } });
+
+    // --- TODO: Implement and use an email service to send the new password ---
+    // You can use a library like nodemailer.
+    // Example:
+    //
+    // import nodemailer from 'nodemailer';
+    //
+    // const transporter = nodemailer.createTransport({
+    //   service: 'gmail',
+    //   auth: { user: 'your-email@gmail.com', pass: 'your-app-password' }
+    // });
+    //
+    // await transporter.sendMail({
+    //   from: '"Your App Name" <your-email@gmail.com>',
+    //   to: user.email,
+    //   subject: 'Your New Password',
+    //   text: `Your new password is: ${newPassword}`
+    // });
+    console.log(`Password for ${user.email} has been reset to: ${newPassword}`); 
+
+    return res.json({ message: "A new password has been sent to the admin's email address." });
+  } catch (error) {
+    console.error("Forget password error:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 });
