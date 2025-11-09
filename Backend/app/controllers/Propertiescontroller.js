@@ -51,22 +51,19 @@ export const getAllProperties = async (req, res, next) => {
     const { city, status: queryStatus, type: queryType } = req.query;
     const filter = { IsStatus: status.active };
 
-    // 🏙️ City filter — only apply if city exists and is not empty
     if (city && city.trim()) {
       filter.location = { $regex: new RegExp(city.trim(), 'i') };
     }
 
-    // 🏗️ Status filter — only apply if queryStatus exists
     if (queryStatus && queryStatus.trim()) {
       const statusArray = String(queryStatus)
         .split(',')
-        .map(s => s.trim().replace(/_/g, ' '));
+        .map(s => s.trim());
       if (statusArray.length > 0 && statusArray[0] !== "") {
         filter.status = { $in: statusArray.map(s => new RegExp(`^${s}$`, 'i')) };
       }
     }
 
-    // 🏠 Type filter — only apply if queryType exists
     if (queryType && queryType.trim()) {
       const typeArray = String(queryType)
         .split(',')
@@ -75,7 +72,7 @@ export const getAllProperties = async (req, res, next) => {
         filter.property_type = { $in: typeArray.map(t => new RegExp(`^${t}$`, 'i')) };
       }
     }
-    // ✅ Fetch all matching properties
+    console.log(filter);
     const properties = await PropertiesServices.find(filter);
 
     return res.json(

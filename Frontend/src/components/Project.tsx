@@ -57,9 +57,8 @@ const Project: React.FC = () => {
   const scrollRight = () => scrollRef.current?.scrollBy({ left: 320, behavior: "smooth" });
 
   return (
-    <section className="px-6 py-16 bg-white text-black relative">
+    <section id="projects" className="px-6 py-16 bg-white text-black relative">
       <div className="max-w-7xl mx-auto">
-        {/* Heading */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-14 gap-4">
           <div>
             <h2 className="text-3xl font-bold">
@@ -81,7 +80,6 @@ const Project: React.FC = () => {
           </button>
         </div>
 
-        {/* Carousel */}
         <div className="relative">
           <button
             onClick={scrollLeft}
@@ -147,7 +145,6 @@ const Project: React.FC = () => {
 
       <ContactPop open={isContactPopOpen} onOpenChange={setIsContactPopOpen} />
 
-      {/* Hide scrollbar */}
       <style>{`
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

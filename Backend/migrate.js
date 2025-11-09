@@ -19,6 +19,7 @@ async function genAdmin(email, password, name) {
       email,
       password: passwordHash,
       role: role.admin,
+      phoneNumber:4185236412,
       createdBy: null,
       updatedBy: null,
     }).save();

@@ -1,11 +1,21 @@
 import React from 'react';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScrollLink = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate(`/${targetId}`);
+    } else {
+      document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <footer className="bg-gray-900 text-gray-300 px-6 py-16">
@@ -56,34 +66,29 @@ const Footer: React.FC = () => {
           <h4 className="text-lg font-semibold text-cyan-700 mb-8">Quick Links</h4>
           <ul className="space-y-3 text-sm">
             <li>
-              <a href="#about" className="hover:text-cyan-700 mt-6">
+              <a href="#about" onClick={(e) => handleScrollLink(e, '#about')} className="hover:text-cyan-700 mt-6 cursor-pointer">
                 About Us
               </a>
             </li>
             <li>
-              <a href="#projects" className="hover:text-cyan-700 mt-6">
+              <Link to="/filter" className="hover:text-cyan-700 mt-6">
                 Properties
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#developers" className="hover:text-cyan-700 mt-6">
+              <a href="#developers" onClick={(e) => handleScrollLink(e, '#developers')} className="hover:text-cyan-700 mt-6 cursor-pointer">
                 Developers
               </a>
             </li>
             <li>
-              <a href="#career" className="hover:text-cyan-700 mt-6">
-                Career
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-cyan-700 mt-6">
+              <Link to="/contact" className="hover:text-cyan-700 mt-6">
                 Contact Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#news" className="hover:text-cyan-700 mt-6">
+              <Link to="/filter?status=New_Launch" className="hover:text-cyan-700 mt-6">
                 News & Updates
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

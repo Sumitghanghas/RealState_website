@@ -161,7 +161,7 @@ const PropertyPage: React.FC = () => {
                                 </Text>
 
                                 <Text className="text-3xl font-bold !text-white">
-                                    ₹ {property.Price} Cr* <span className="text-lg font-normal">Onwards</span>
+                                    ₹ {property.Price} <span className="text-lg font-normal">Onwards</span>
                                 </Text>
 
                                 {/* <div className="flex items-center space-x-2">

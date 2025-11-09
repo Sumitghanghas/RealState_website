@@ -15,24 +15,20 @@ const Promises: React.FC = () => {
           Our Promises
         </h2>
 
-        {/* Timeline Container */}
         <div className="flex flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center gap-6 relative">
           {promises.map((text, index) => (
             <div
               key={index}
               className="flex items-center bg-white rounded-lg px-6 py-4 w-full sm:w-[260px] md:w-[280px] lg:w-[250px] xl:w-[260px] shadow-lg relative transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
-              {/* Number Box */}
               <div className="bg-cyan-700 text-white font-bold w-10 h-10 flex items-center justify-center rounded-md mr-4 flex-shrink-0">
                 {index + 1}
               </div>
 
-              {/* Text */}
               <p className="text-cyan-700 font-medium text-sm sm:text-base">
                 {text}
               </p>
 
-              {/* Horizontal line (only on large screens) */}
               {index !== promises.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 right-0 w-16 border-t-2 border-cyan-700 transform -translate-y-1/2 translate-x-full" />
               )}

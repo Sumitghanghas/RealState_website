@@ -112,7 +112,7 @@ const ContactPage: React.FC = () => {
                     height: "100%",
                   }}
                 >
-                  <div style={{ fontSize: 40, color: "#b58b2a", marginBottom: 10 }}>
+                  <div style={{ fontSize: 40, color: "#334155", marginBottom: 10 }}>
                     {item.icon}
                   </div>
                   <Title level={4} style={{ marginBottom: 8 }}>

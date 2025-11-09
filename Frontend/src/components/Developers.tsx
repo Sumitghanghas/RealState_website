@@ -25,7 +25,7 @@ const logos: string[] = [
 
 const Developers: React.FC = () => {
   return (
-    <section className="px-6 py-16 bg-gray-800 text-white">
+    <section id="developers" className="px-6 py-16 bg-gray-800 text-white">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-2">A+ DEVELOPERS</h2>
         <p className="text-yellow-500 mb-10">Trusted Partners in Excellence</p>

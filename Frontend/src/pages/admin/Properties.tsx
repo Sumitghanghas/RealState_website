@@ -146,7 +146,7 @@ export default function Properties() {
                       <TableRow key={property.id}>
                         <TableCell className="font-medium">{property.title}</TableCell>
                         <TableCell>{property.location}</TableCell>
-                        <TableCell>${property.price?.toLocaleString()}</TableCell>
+                        <TableCell>₹{property.price?.toLocaleString()}</TableCell>
                         <TableCell className="capitalize">{property.property_type}</TableCell>
                         <TableCell>{property.bedrooms || "N/A"}</TableCell>
                         <TableCell>{property.bathrooms || "N/A"}</TableCell>
