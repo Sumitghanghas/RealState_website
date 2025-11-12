@@ -113,7 +113,7 @@ const Project: React.FC = () => {
                       <img
                         src={
                           project.Images?.[0]
-                            ? `${import.meta.env.VITE_BACKEND_URL}${project.Images[0]}`
+                            ? `${project.Images[0]}`
                             : "/placeholder.jpg"
                         }
                         alt={project.title}

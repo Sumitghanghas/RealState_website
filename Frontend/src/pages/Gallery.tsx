@@ -80,7 +80,7 @@ export default function PropertyGallery() {
                         className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
                       >
                         <img
-                          src={`${import.meta.env.VITE_BACKEND_URL}${img}`}
+                          src={`${img}`}
                           alt={`${section.title} Property`}
                           className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500"
                         />

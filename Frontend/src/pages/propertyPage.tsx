@@ -124,7 +124,7 @@ const PropertyPage: React.FC = () => {
                                         <div key={index}>
                                             <Image
                                                 width="100%"
-                                                src={`${import.meta.env.VITE_BACKEND_URL}${img}`}
+                                                src={`${img}`}
                                                 alt={`${property.title} view ${index + 1}`}
                                                 className="rounded-lg"
                                                 preview={false}
@@ -138,7 +138,7 @@ const PropertyPage: React.FC = () => {
                                     {property.Images.map((img, index) => (
                                         <Image
                                             key={`${img}-${index}`}
-                                            src={`${import.meta.env.VITE_BACKEND_URL}${img}`}
+                                            src={`${img}`}
                                             alt={`Thumbnail ${index + 1}`}
                                             width={100}
                                             height={70}

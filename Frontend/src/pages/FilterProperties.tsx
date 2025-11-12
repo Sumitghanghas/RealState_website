@@ -66,7 +66,7 @@ const FilterProperties: React.FC = () => {
                     className="bg-gray-900 rounded-lg shadow-lg overflow-hidden h-full flex flex-col hover:scale-105 transform transition duration-300"
                   >
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}${property.Images[0]}`}
+                      src={`${property.Images[0]}`}
                       alt={property.title}
                       className="w-full h-48 object-cover"
                     />
