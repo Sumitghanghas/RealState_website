@@ -25,7 +25,7 @@ interface StatStripProps {
 }
 
 const StatStrip: React.FC<StatStripProps> = ({ data }) => (
-  <div className="bg-gray-900 rounded-xl p-4 py-14 px-8 flex flex-wrap justify-between items-center gap-6 shadow-md">
+  <div className="bg-gray-900 rounded-xl p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
     {data.map((item, index) => (
       <div
         key={index}
