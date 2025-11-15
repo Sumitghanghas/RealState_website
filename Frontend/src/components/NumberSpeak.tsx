@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from '../assets/gallery/logo/logo_4.png';
 import { useNavigate } from "react-router-dom";
 
 interface StatItem {
@@ -51,7 +50,7 @@ const NumberSpeak: React.FC = () => {
             <span className="border-b-4 border-cyan-700 pb-1">Number</span>Speak
           </h2>
           <img
-            src={Logo}
+            src="/assets/gallery/logo/logo_4.png"
             alt="Logo"
             className="h-10 w-auto object-contain"
             onClick={() => navigate("/login")}

@@ -13,21 +13,21 @@ const testimonials: TestimonialType[] = [
     role: 'Homebuyer, Gurgaon',
     quote:
       'The team was incredibly professional and helped me find the perfect home. Their attention to detail and transparency made the entire process seamless.',
-    image: './src/assets/gallery/test/test.jpg',
+    image: '/assets/gallery/test/test.jpg',
   },
   {
     name: 'Rohit Sharma',
     role: 'Investor, Delhi NCR',
     quote:
       'I was impressed by the quality of projects and the level of service. Highly recommended for anyone looking to invest in real estate.',
-    image: './src/assets/gallery/test/test_4.jpg',
+    image: '/assets/gallery/test/test_4.jpg',
   },
   {
     name: 'Priya Verma',
     role: 'Commercial Client',
     quote:
       'From site visits to final paperwork, everything was handled with care and precision. Truly a premium experience.',
-    image: './src/assets/gallery/test/test_2.jpg',
+    image: '/assets/gallery/test/test_2.jpg',
   },
 ];
 

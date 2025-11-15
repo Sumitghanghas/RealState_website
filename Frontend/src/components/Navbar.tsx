@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img
-            src="/src/assets/gallery/logo/logo_4.png"
+            src="/assets/gallery/logo/logo_4.png"
             alt="Logo"
             className="h-10"
           />
