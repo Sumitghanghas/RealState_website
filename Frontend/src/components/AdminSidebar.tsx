@@ -1,4 +1,4 @@
-import { Users, Building2, LayoutDashboard, LogOut } from "lucide-react";
+import { Users, Building2, LayoutDashboard, LogOut, Rss } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   Sidebar,
@@ -19,6 +19,7 @@ const menuItems = [
   { title: "Dashboard", url: "/admin", icon: LayoutDashboard },
   { title: "User Inquiries", url: "/admin/users", icon: Users },
   { title: "Properties", url: "/admin/properties", icon: Building2 },
+  { title: "Blogs", url: "/admin/blogs", icon: Rss },
 ];
 
 const logoutItem = { title: "Logout", icon: LogOut };

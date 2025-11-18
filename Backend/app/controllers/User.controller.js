@@ -2,16 +2,16 @@ import mongoose from "mongoose";
 // import { PropertiesCreationSchema } from "../schima/Properties.js";
 import { role, status } from "../constants/index.js";
 import * as UserServices from "../services/user.js";
-
+import { sendContactInquiry } from "../libs/communication.js";
 
 
 export const AddUsersAndSendMessage = async (req, res, next) => {
   try {
     const { FullName, Email, Phone_number, Subject, messsage } = req.body;
-    if(!FullName || !Email || !Phone_number || !Subject || !messsage){
-    return res.status(404).json({
-      message: "All fields are required",
-    });  
+    if (!FullName || !Email || !Phone_number || !Subject || !messsage) {
+      return res.status(404).json({
+        message: "All fields are required",
+      });
     }
     const creationObj = {
       id: new mongoose.Types.ObjectId(),
@@ -20,15 +20,16 @@ export const AddUsersAndSendMessage = async (req, res, next) => {
       phoneNumber: Phone_number,
       subject: Subject,
       Message: messsage,
-        role: role.users,
+      role: role.users,
     };
 
-    const property = await UserServices.save(creationObj);
+    const userInquiry = await UserServices.save(creationObj);
 
+    sendContactInquiry(creationObj);
 
     return res.status(201).json({
-      message: "Property created successfully",
-      property,
+      message: "Message sent successfully",
+      inquiry: userInquiry,
     });
 
   } catch (error) {
@@ -45,7 +46,7 @@ export const getuser = async (req, res, next) => {
       id: inquiry._id,
       name: inquiry.name,
       email: inquiry.email,
-      phone_number: inquiry.phoneNumber, 
+      phone_number: inquiry.phoneNumber,
       subject: inquiry.subject,
       message: inquiry.Message,
       created_at: inquiry.createdAt,

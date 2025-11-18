@@ -6,7 +6,7 @@ import * as UserServices from "../services/user.js";
 import { comparePassword, hashPassword } from "../middleware/hashPassword.js";
 import checkauth from "../middleware/Checkauth.js";
 import { role } from "../constants/index.js";
-// import { sendPasswordResetEmail } from "../services/emailService.js"; 
+import { sendPasswordResetEmail } from "../libs/communication.js"; 
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 const router = Router();
@@ -70,26 +70,9 @@ router.post("/forgot-password", async (req, res) => {
     const newPassword = crypto.randomBytes(8).toString("hex");
     const hashedPassword = await hashPassword(newPassword);
 
-    await UserServices.updateOne({ _id: user._id }, { $set: { password: hashedPassword } });
+    await UserServices.updateOne({ _id: user._id }, { password: hashedPassword });
 
-    // --- TODO: Implement and use an email service to send the new password ---
-    // You can use a library like nodemailer.
-    // Example:
-    //
-    // import nodemailer from 'nodemailer';
-    //
-    // const transporter = nodemailer.createTransport({
-    //   service: 'gmail',
-    //   auth: { user: 'your-email@gmail.com', pass: 'your-app-password' }
-    // });
-    //
-    // await transporter.sendMail({
-    //   from: '"Your App Name" <your-email@gmail.com>',
-    //   to: user.email,
-    //   subject: 'Your New Password',
-    //   text: `Your new password is: ${newPassword}`
-    // });
-    console.log(`Password for ${user.email} has been reset to: ${newPassword}`); 
+    await sendPasswordResetEmail(user.email, newPassword);
 
     return res.json({ message: "A new password has been sent to the admin's email address." });
   } catch (error) {

@@ -73,12 +73,12 @@ const ContactPage: React.FC = () => {
               {
                 icon: <PhoneOutlined />,
                 title: "Phone",
-                text: "9968686868",
+                text: "9053188821",
               },
               {
                 icon: <MailOutlined />,
                 title: "Email",
-                text: "info@eliteproinfra.com",
+                text: "naveenassociatesgroup@gmail.com",
               },
               {
                 icon: <GlobalOutlined />,
@@ -89,8 +89,7 @@ const ContactPage: React.FC = () => {
               {
                 icon: <EnvironmentOutlined />,
                 title: "Office",
-                text: `3rd Floor, Golf View Corporate Tower ‘A’,
-        Golf Course Road, Sector 42, Gurgaon – 122002`,
+                text: `DP01 Tricolour Street, Sector 108, Near Westerlies main gate, Gurugram`,
               },
             ].map((item, index) => (
               <Col xs={24} sm={12} md={6} key={index}>
@@ -141,108 +140,93 @@ const ContactPage: React.FC = () => {
             color: "white",
           }}
         >
-          <div
-            style={{
-              maxWidth: 800,
-              margin: "0 auto",
-              background: "white",
-              padding: "40px 30px",
-              borderRadius: 12,
-              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-            }}
-          >
-            <Title
-              level={2}
-              style={{ textAlign: "center", marginBottom: 10, color: "#0f172a" }}
-            >
-              Let’s Connect
-            </Title>
-            <Text
-              style={{
-                display: "block",
-                textAlign: "center",
-                marginBottom: 30,
-                color: "#555",
-              }}
-            >
-              Have a question or want to schedule a visit? Fill out the form and
-              we’ll get back to you shortly.
-            </Text>
+          <Row gutter={[48, 32]} align="middle" style={{ maxWidth: 1200, margin: '0 auto' }}>
+            {/* Map Column */}
+            <Col xs={24} lg={10}>
+              <a href="https://www.google.com/maps/search/?api=1&query=Westerlies+Main+Gate,+Experion+Heartsong+Tower+4,+Experion+Heartsong,+Sector+108,+Gurugram,+Haryana+122006,+India" target="_blank" rel="noopener noreferrer">
+                <iframe
+                  src="https://maps.google.com/maps?q=Westerlies%20Main%20Gate%2C%20Experion%20Heartsong%20Tower%204%2C%20Experion%20Heartsong%2C%20Sector%20108%2C%20Gurugram%2C%20Haryana%20122006%2C%20India&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="550"
+                  style={{ border: 0, borderRadius: '12px' }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Office Location"
+                ></iframe>
+              </a>
+            </Col>
 
-            <Form layout="vertical" onFinish={handleSubmit}>
-              <Row gutter={16}>
-                <Col xs={24} md={12}>
-                  <Form.Item
-                    label="Full Name"
-                    name="FullName"
-                    rules={[{ required: true, message: "Please enter your name" }]}
-                  >
-                    <Input placeholder="Enter your full name" />
-                  </Form.Item>
-                </Col>
+            {/* Form Column */}
+            <Col xs={24} lg={14}>
+              <div
+                style={{
+                  background: "white",
+                  padding: "40px 30px",
+                  borderRadius: 12,
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                }}
+              >
+                <Title level={2} style={{ textAlign: "center", marginBottom: 10, color: "#0f172a" }}>
+                  Let’s Connect
+                </Title>
+                <Text style={{ display: "block", textAlign: "center", marginBottom: 30, color: "#555" }}>
+                  Have a question or want to schedule a visit? Fill out the form and we’ll get back to you shortly.
+                </Text>
 
-                <Col xs={24} md={12}>
-                  <Form.Item
-                    label="Email Address"
-                    name="Email"
-                    rules={[
-                      { required: true, message: "Please enter your email" },
-                      { type: "email", message: "Enter a valid email" },
-                    ]}
-                  >
-                    <Input placeholder="Enter your email" />
-                  </Form.Item>
-                </Col>
+                <Form layout="vertical" onFinish={handleSubmit}>
+                  <Row gutter={16}>
+                    <Col xs={24} md={12}>
+                      <Form.Item label="Full Name" name="FullName" rules={[{ required: true, message: "Please enter your name" }]}>
+                        <Input placeholder="Enter your full name" />
+                      </Form.Item>
+                    </Col>
 
-                <Col xs={24} md={12}>
-                  <Form.Item
-                    label="Phone Number"
-                    name="Phone_number"
-                    rules={[
-                      { required: true, message: "Please enter your phone number" },
-                    ]}
-                  >
-                    <Input placeholder="Enter your phone number" />
-                  </Form.Item>
-                </Col>
+                    <Col xs={24} md={12}>
+                      <Form.Item label="Email Address" name="Email" rules={[{ required: true, message: "Please enter your email" }, { type: "email", message: "Enter a valid email" }]}>
+                        <Input placeholder="Enter your email" />
+                      </Form.Item>
+                    </Col>
 
-                <Col xs={24} md={12}>
-                  <Form.Item label="Subject" name="Subject">
-                    <Input placeholder="Enter subject" />
-                  </Form.Item>
-                </Col>
+                    <Col xs={24} md={12}>
+                      <Form.Item label="Phone Number" name="Phone_number" rules={[{ required: true, message: "Please enter your phone number" }]}>
+                        <Input placeholder="Enter your phone number" />
+                      </Form.Item>
+                    </Col>
 
-                <Col span={24}>
-                  <Form.Item
-                    label="Your Message"
-                    name="messsage"
-                    rules={[
-                      { required: true, message: "Please enter your message" },
-                    ]}
-                  >
-                    <TextArea rows={4} placeholder="Write your message..." />
-                  </Form.Item>
-                </Col>
+                    <Col xs={24} md={12}>
+                      <Form.Item label="Subject" name="Subject">
+                        <Input placeholder="Enter subject" />
+                      </Form.Item>
+                    </Col>
 
-                <Col span={24}>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    loading={loading}
-                    style={{
-                      width: "100%",
-                      backgroundColor: "#0e7490",
-                      borderColor: "#0e7490",
-                      height: 45,
-                      fontSize: 16,
-                    }}
-                  >
-                    {loading ? "Sending..." : "Send Message"}
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
-          </div>
+                    <Col span={24}>
+                      <Form.Item label="Your Message" name="messsage" rules={[{ required: true, message: "Please enter your message" }]}>
+                        <TextArea rows={4} placeholder="Write your message..." />
+                      </Form.Item>
+                    </Col>
+
+                    <Col span={24}>
+                      <Button
+                        type="primary"
+                        htmlType="submit"
+                        loading={loading}
+                        style={{
+                          width: "100%",
+                          backgroundColor: "#0e7490",
+                          borderColor: "#0e7490",
+                          height: 45,
+                          fontSize: 16,
+                        }}
+                      >
+                        {loading ? "Sending..." : "Send Message"}
+                      </Button>
+                    </Col>
+                  </Row>
+                </Form>
+              </div>
+            </Col>
+          </Row>
         </div>
       </Layout>
       <Footer />

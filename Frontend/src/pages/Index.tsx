@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
+import Blog from '../components/Blog';
 import About from './About'
 import Promises from '../components/Promises'
 import Choose from './Choose'
@@ -22,6 +23,7 @@ const Index = () => {
             <Project/>
             <NumberSpeak/>
             <Developers/>
+             <Blog />
             <Testimonial/>
             <Footer/>
        </>

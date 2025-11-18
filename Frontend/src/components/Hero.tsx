@@ -27,7 +27,6 @@ const Hero: React.FC = () => {
     setManualCity("");
   };
 
-  // 🧭 Handle Search Button Click
   const handleSearch = () => {
     const searchCity = manualCity || city;
     const params = new URLSearchParams();
@@ -41,7 +40,6 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
-      {/* Background Video */}
       <video
         autoPlay
         muted
@@ -51,7 +49,6 @@ const Hero: React.FC = () => {
         <source src="/assets/gallery/bg/bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
           Find Your Dream Home
@@ -60,10 +57,8 @@ const Hero: React.FC = () => {
           Explore futuristic living spaces tailored for you
         </p>
 
-        {/* 🌐 Search Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-center mt-4 w-full px-2 sm:px-4">
           <div className="flex flex-col sm:flex-row items-center w-full sm:w-4/5 md:w-3/4 lg:w-2/3 max-w-3xl bg-white/20 backdrop-blur-md rounded-lg p-2 gap-2">
-            {/* Location Dropdown */}
             <select
               value={city}
               onChange={(e) => setCity(e.target.value)}
@@ -76,7 +71,6 @@ const Hero: React.FC = () => {
               <option value="faridabad">Faridabad</option>
             </select>
 
-            {/* Manual Location Input */}
             <input
               type="text"
               value={manualCity}
@@ -85,7 +79,6 @@ const Hero: React.FC = () => {
               className="flex-1 px-3 py-2 bg-transparent text-white placeholder-gray-300 border-none outline-none w-full sm:w-auto"
             />
 
-            {/* Search Button */}
             <button
               onClick={handleSearch}
               className="w-full sm:w-auto px-5 py-2 bg-cyan-700 text-white rounded-md hover:bg-cyan-600 transition cursor-pointer"
@@ -95,7 +88,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Filters Toggle */}
         <button
           onClick={() => setShowFilters(!showFilters)}
           className="px-6 py-2 bg-white text-cyan-700 rounded-md font-semibold mt-4 flex items-center gap-2 hover:bg-gray-200 transition cursor-pointer"
@@ -111,7 +103,6 @@ const Hero: React.FC = () => {
           Filters
         </button>
 
-        {/* Filter Options */}
         {showFilters && (
           <div className="mt-4 text-left text-white bg-white/20 backdrop-blur-md w-100 rounded-lg p-4 max-w-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -150,7 +141,6 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Buttons */}
             <div className="flex justify-between mt-4">
               <button
                 onClick={resetFilters}

@@ -23,22 +23,25 @@ const Footer: React.FC = () => {
         {/* Contact Info */}
         <div className="bg-gray-800 rounded-xl p-6 shadow-md flex flex-col">
           <div className="flex-grow">
-            <h3 className="text-xl font-bold text-white mb-2">
-              Naveen Associates
-            </h3>
-            <p className="text-sm text-gray-400 mb-4">Trusted for Transparency</p>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/assets/gallery/logo/logo_4.png" alt="Naveen Associates Logo" className="h-10" />
+              <div>
+                <h3 className="text-xl font-bold text-white">Naveen Associates</h3>
+                <p className="text-sm text-gray-400">Trusted for Transparency</p>
+              </div>
+            </div>
             <ul className="space-y-3 text-sm mt-8">
               <li className="flex items-center gap-2">
                 <PhoneIcon className="h-4 w-4 text-cyan-700" />
-                +91 98765 43210
+                +91 9053188821
               </li>
               <li className="flex items-center gap-2">
                 <EnvelopeIcon className="h-4 w-4 text-cyan-700" />
-                info@urbanvista.in
+                naveenassociatesgroup@gmail.com
               </li>
               <li className="flex items-center gap-2">
                 <MapPinIcon className="h-4 w-4 text-cyan-700" />
-                3rd Floor, Golf View Tower-A, Sector 42, Gurgaon
+                DP01 Tricolour Street, Sector 108, Near Westerlies main gate, Gurugram
               </li>
             </ul>
           </div>
@@ -66,9 +69,9 @@ const Footer: React.FC = () => {
           <h4 className="text-lg font-semibold text-cyan-700 mb-8">Quick Links</h4>
           <ul className="space-y-3 text-sm">
             <li>
-              <a href="#about" onClick={(e) => handleScrollLink(e, '#about')} className="hover:text-cyan-700 mt-6 cursor-pointer">
+              <Link to="/about-us" className="hover:text-cyan-700 mt-6">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
               <Link to="/filter" className="hover:text-cyan-700 mt-6">
@@ -86,7 +89,7 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="/filter?status=New_Launch" className="hover:text-cyan-700 mt-6">
+              <Link to="/blogs" className="hover:text-cyan-700 mt-6">
                 News & Updates
               </Link>
             </li>

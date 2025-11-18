@@ -4,6 +4,8 @@ import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 export default function PropertyGallery() {
   const [properties, setProperties] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -80,9 +82,9 @@ export default function PropertyGallery() {
                         className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
                       >
                         <img
-                          src={`${img}`}
+                          src={`${BACKEND_URL}${img}`}
                           alt={`${section.title} Property`}
-                          className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500"
+                          className="w-full h-56 object-contain bg-gray-900 hover:scale-105 transition-transform duration-500"
                         />
                       </Card>
                     ))}

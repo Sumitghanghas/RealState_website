@@ -53,7 +53,7 @@ const Testimonial: React.FC = () => {
                 <img
                   src={t.image}
                   alt={t.name}
-                  className="w-14 h-14 rounded-full object-cover"
+                  className="w-14 h-14 rounded-full object-contain"
                 />
                 <div>
                   <h3 className="font-semibold text-lg">{t.name}</h3>

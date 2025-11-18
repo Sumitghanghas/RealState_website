@@ -9,6 +9,8 @@ import {
 import { ContactPop } from "./ContactPop";
 import { propertyClint } from "../store/index";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 interface ProjectType {
   id: string;
   title: string;
@@ -113,11 +115,11 @@ const Project: React.FC = () => {
                       <img
                         src={
                           project.Images?.[0]
-                            ? `${project.Images[0]}`
+                            ? `${BACKEND_URL}${project.Images[0]}`
                             : "/placeholder.jpg"
                         }
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 bg-gray-200"
                       />
                     </div>
                     <div className="p-4 flex flex-col justify-between flex-grow">

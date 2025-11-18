@@ -31,6 +31,8 @@ import { propertyClint } from '@/store';
 const { Content } = Layout;
 const { Title, Text, Paragraph } = Typography;
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 // 1. Define a TypeScript interface for your data
 interface Property {
     id: string;
@@ -124,7 +126,7 @@ const PropertyPage: React.FC = () => {
                                         <div key={index}>
                                             <Image
                                                 width="100%"
-                                                src={`${img}`}
+                                                src={`${BACKEND_URL}${img}`}
                                                 alt={`${property.title} view ${index + 1}`}
                                                 className="rounded-lg"
                                                 preview={false}
@@ -137,14 +139,14 @@ const PropertyPage: React.FC = () => {
                                 <Space size="small" className="mt-4 flex flex-wrap">
                                     {property.Images.map((img, index) => (
                                         <Image
-                                            key={`${img}-${index}`}
-                                            src={`${img}`}
+                                            key={`${BACKEND_URL}${img}-${index}`}
+                                            src={`${BACKEND_URL}${img}`}
                                             alt={`Thumbnail ${index + 1}`}
                                             width={100}
                                             height={70}
                                             preview={false}
                                             onClick={() => handleThumbnailClick(index)}
-                                            className="cursor-pointer rounded-md object-cover"
+                                            className="cursor-pointer rounded-md object-contain bg-gray-900"
                                         />
                                     ))}
                                 </Space>

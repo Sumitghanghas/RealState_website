@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { propertyClint } from "@/store";
 import { toast } from "sonner";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 interface Property {
   id: string;
   title: string;
@@ -66,9 +68,9 @@ const FilterProperties: React.FC = () => {
                     className="bg-gray-900 rounded-lg shadow-lg overflow-hidden h-full flex flex-col hover:scale-105 transform transition duration-300"
                   >
                     <img
-                      src={`${property.Images[0]}`}
+                      src={`${BACKEND_URL}${property.Images[0]}`}
                       alt={property.title}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48 object-contain bg-gray-900"
                     />
                     <div className="p-4 flex-grow flex flex-col">
                       <h3 className="text-lg font-semibold">{property.title}</h3>

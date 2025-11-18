@@ -12,7 +12,9 @@ export const addProperties = async (req, res, next) => {
   try {
 
     const { title, description, location, price, property_type, bedrooms, bathrooms, area_sqft, status } = req.body;
-    const imagePaths = req.files ? req.files.map((file) => file.path) : [];
+    const imagePaths = req.files
+      ? req.files.map((file) => `/${file.path.replace(/\\/g, "/").replace("public/", "")}`)
+      : [];
 
     const creationObj = {
       id: new mongoose.Types.ObjectId(),

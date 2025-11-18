@@ -43,9 +43,11 @@ const Navbar: React.FC = () => {
           </span>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex relative gap-10 text-white font-medium mr-6">
           <Link to="/" className="hover:text-gray-300 transition">Home</Link>
+          <Link to="/about-us" className="hover:text-gray-300 transition">
+            About Us
+          </Link>
 
           <div className="relative" ref={dropdownRef}>
             <button
@@ -85,6 +87,9 @@ const Navbar: React.FC = () => {
           <Link to="/projects" className="hover:text-gray-300 transition">
             Gallery
           </Link>
+          <Link to="/blogs" className="hover:text-gray-300 transition">
+            Blogs
+          </Link>
           <Link to="/contact" className="hover:text-gray-300 transition">
             Contact Us
           </Link>
@@ -104,6 +109,9 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-black text-white px-6 py-4 space-y-3 border-t border-gray-700">
           <Link to="/" className="block hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
             Home
+          </Link>
+          <Link to="/about-us" className="block hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>
+            About Us
           </Link>
 
           <div className="relative" ref={dropdownRef}>
@@ -146,6 +154,13 @@ const Navbar: React.FC = () => {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Gallery
+          </Link>
+          <Link
+            to="/blogs"
+            className="block hover:text-gray-300"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Blogs
           </Link>
           <Link
             to="/contact"
