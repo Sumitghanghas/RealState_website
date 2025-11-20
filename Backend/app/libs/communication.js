@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 export const sendPasswordResetEmail = async (to, newPassword) => {
     const mailOptions = {
         from: `"Naveen Associates" <${process.env.EMAIL_USER}>`,
-        to: 'sghanghas175@gmail.com',
+        to: 'rohits@naveenassociatesgroup.com',
         subject: 'Your Password Has Been Reset',
         html: `
       <p>Hello,</p>
@@ -34,7 +34,6 @@ export const sendPasswordResetEmail = async (to, newPassword) => {
         console.log(`Password reset email sent to ${to}`);
     } catch (error) {
         console.error(`Error sending password reset email to ${to}:`, error);
-        // We don't re-throw the error to avoid breaking the user flow
     }
 };
 
@@ -43,7 +42,7 @@ export const sendPasswordResetEmail = async (to, newPassword) => {
  * @param {object} userDetails - The details submitted from the contact form.
  */
 export const sendContactInquiry = async (userDetails) => {
-    const adminEmail = 'sghanghas175@gmail.com';
+    const adminEmail = 'rohits@naveenassociatesgroup.com';
     const mailOptions = {
         from: `"Website Inquiry" <${process.env.EMAIL_USER}>`,
         to: adminEmail,
